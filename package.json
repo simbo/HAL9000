@@ -1,0 +1,20 @@
+{
+  "name": "hal9000",
+  "version": "0.0.2",
+  "description": "HAL9000 in CSS",
+  "author": {
+    "name": "Simon Lepel",
+    "email": "hallo@simonlepel.de",
+    "url": "http://simonlepel.de"
+  },
+  "license": {
+    "type": "GPL"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.10.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-notify": "~0.2.17",
+    "grunt-autoprefixer": "~0.7.2"
+  }
+}

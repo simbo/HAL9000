@@ -1,0 +1,150 @@
+/* =============================================================================
+   HAL9000
+   ========================================================================== */
+
+.hal9000 {
+	display: inline-block;
+	position:relative;
+	font: ~'40px/0' a;
+	border: .04em solid fade(#000,20%);
+	box-shadow: 0 .3em .1em fade(#000,30%);
+
+	.screen-xs({
+		width: ( @screen-xs * 0.6 );
+		height: ( @screen-xs * 0.6 );
+		font-size: 20px;
+	});
+
+	.screen-sm-max({
+		width: ( @screen-sm * 0.6 );
+		height: ( @screen-sm * 0.6 );
+		font-size: 30px;
+	});
+
+	.screen-md-max({
+		width: ( @screen-md * 0.5 );
+		height: ( @screen-md * 0.5 );
+		font-size: 35px;
+	});
+
+	.screen-lg({
+		width: ( @screen-lg * 0.45 );
+		height: ( @screen-lg * 0.45 );
+	});
+
+	&,
+	&:before,
+	&:after,
+	.eye,
+	.eye:before,
+	.eye:after,
+	.reflection,
+	.reflection:before,
+	.reflection:after {
+		border-radius: 100%;
+	}
+
+	&:before,
+	&:after,
+	.eye,
+	.eye:before,
+	.eye:after,
+	.reflection,
+	.reflection:before,
+	.reflection:after {
+		position: absolute;
+	}
+
+	&:before,
+	&:after,
+	.eye:before,
+	.eye:after,
+	.reflection:before,
+	.reflection:after {
+		content: '';
+		display: block;
+	}
+
+	&:before,
+	&:after,
+	.eye:before,
+	.eye:after {
+		top: 0;
+		left: 0;
+	}
+
+	&:before,
+	.eye:before,
+	.eye:after {
+		height: 100%;
+		width: 100%;
+	}
+
+	&:before {
+		z-index: 1;
+		// #gradient > .vertical(#a9a9a9, #ffffff 20%, #595959 40%, #b3b3b3 65%, #666666);
+		#gradient > .vertical(#C5ACAC, #B1A8A8 34%, #564D4D 50%, #3F3535);
+	}
+
+	&:after {
+		z-index: 2;
+		margin: 1.8%;
+		width: 96.4%;
+		height: 96.4%;
+		// #gradient > .vertical(#737373, #666666 14%, #a9a9a9 50%, #999999 72%, #b7b7b7 80%, #cccccc);
+		#gradient > .vertical(#644A4A, #6A5151 44%, #BCA9A9 53%, #CBBABA);
+	}
+
+	.eye {
+		z-index: 3;
+		left: 4.5%;
+		top: 4.5%;
+		height: 91%;
+		width: 91%;
+		background-color: #000;
+		border: 1px solid fade(#000,50%);
+
+		&:before {
+			#gradient > .radial(#fff063 2%, #fa0c02 10%, #c80901 30%, #310200 55%, #000000 85%);
+		}
+
+		&:after {
+			#gradient > .radial(#fff063 5%, #fa0c02 15%, #c80901 40%, #0c0000 65%, #000000 85%);
+			animation: pulse 20s ease-in-out infinite alternate;
+		}
+
+	}
+
+	.reflection {
+		z-index: 4;
+		top: 24%;
+		left: 16%;
+		width: 24%;
+		height: 8%;
+		background-color: fade(#fff,12%);
+		box-shadow: 0 0 .06em fade(#fff,12%);
+		transform: rotate(-45deg);
+
+		&:before,
+		&:after {
+			left: 50%;
+			background-color: fade(#fff,10%);
+			box-shadow: 0 0 .06em fade(#fff,10%);
+		}
+		
+		&:before {
+			top: 130%;
+			height: 50%;
+			width: 50%;
+			margin-left: -25%;
+		}
+
+		&:after {
+			top: 250%;
+			height: 26%;
+			width: 26%;
+			margin-left: -13%;
+		}
+	}
+
+}

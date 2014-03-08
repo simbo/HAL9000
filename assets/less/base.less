@@ -1,0 +1,57 @@
+/* =============================================================================
+   Basic Styles
+   ========================================================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: ~'@{font-size-base}/@{line-height-base}' @font-family-base;
+	color: #fff;
+	#gradient > .radial(#333, #000);
+}
+
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.wrap {
+	display: table;
+	width: 100%;
+	height: 100%;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+}
+
+.info {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	color: #666;
+	font-size: 12px;
+	font-weight: 200;
+	text-decoration: none;
+	letter-spacing: .1em;
+	transition-property: transform;
+	transition-duration: .4s;
+	transform-origin: bottom left;
+
+	span {
+		color: #aaa;
+		font-weight: 400;
+	}
+
+	&:hover {
+		transform: scale(1.2);
+	}
+
+}

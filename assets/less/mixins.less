@@ -1,0 +1,84 @@
+/* =============================================================================
+   Media queries for different screen sizes
+   ========================================================================== */
+
+.screen-xs(@rules) {
+	@media (max-width: @screen-xs-max) { @rules(); } 
+}
+
+.screen-sm(@rules) {
+	@media (min-width: @screen-sm-min) { @rules(); } 
+}
+
+.screen-sm-max(@rules) {
+	@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { @rules(); } 
+}
+
+.screen-md(@rules) {
+	@media (min-width: @screen-md-min) { @rules(); } 
+}
+
+.screen-md-max(@rules) {
+	@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { @rules(); } 
+}
+
+.screen-lg(@rules) {
+	@media (min-width: @screen-lg-min) { @rules(); } 
+}
+
+
+
+/* =============================================================================
+   Gradients with unlimited color-stops
+   ========================================================================== */
+
+#gradient {
+
+	// Filter color-stop params
+	.color-stops(@color-stops-N...) {
+		@color-stops: ~`"@{arguments}".replace(/(^\[)|(\]$)/g,'')`;
+	}
+
+	// Creepy IE special treatment, fallback on first and last color-stop
+	.ie-filter(@color-stops, @type) {
+		filter: ~`(function(c,t){
+	    	var a = c[0].split(/\s/)[0].trim(),
+	    		b = c.slice(-1)[0].trim().split(/\s/)[0].trim();
+	    	return "progid:DXImageTransform.Microsoft.gradient(startColorstr='"+a+"', endColorstr='"+b+"', GradientType="+t+")";
+	    })("@{color-stops}".split(','),@{type})`;
+	}
+
+	// Horizontal gradient, from left to right
+	.horizontal(@color-stops-0: #555 0%, @color-stops-1: #333 100%, @color-stops-N...) {
+		.color-stops(@arguments);
+		background-image: linear-gradient(to right, @color-stops); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+		background-repeat: repeat-x;
+		#gradient > .ie-filter(@color-stops, 1); // IE9 and down, gets no color-stop at all for proper fallback
+	}
+
+	// Vertical gradient, from top to bottom
+	.vertical(@color-stops-0: #555 0%, @color-stops-1: #333 100%, @color-stops-N...) {
+		.color-stops(@arguments);
+		background-image: linear-gradient(to bottom, @color-stops); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+		background-repeat: repeat-x;
+		#gradient > .ie-filter(@color-stops, 0); // IE9 and down, gets no color-stop at all for proper fallback
+	}
+
+	.directional(@deg: 45deg, @color-stops-0: #555 0%, @color-stops-1: #333 100%, @color-stops-N...) {
+		.color-stops(@arguments);
+		background-image: linear-gradient(@deg, @color-stops); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+		background-repeat: repeat-x;
+	}
+
+	.radial(@color-stops-0: #555 0%, @color-stops-1: #333 100%, @color-stops-N...) {
+		.color-stops(@arguments);
+		background-image: radial-gradient(circle, @color-stops);
+		background-repeat: no-repeat;
+	}
+
+	.striped(@angle: 45deg; @color: rgba(255,255,255,.15)) {
+		#gradient > .directional(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+		background-repeat: repeat;
+	}
+
+}

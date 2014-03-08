@@ -1,0 +1,30 @@
+# Project related
+bower_components/
+node_modules/
+assets/css/*
+!.gitignore
+
+# IDE
+*.sublime-workspace
+*.sublime-project
+*.esproj
+*.bak
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+
+# Windows stuff
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
