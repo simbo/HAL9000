@@ -160,6 +160,7 @@ body {
   background-image: -o-radial-gradient(circle, #333333, #000000);
   background-image: radial-gradient(circle, #333333, #000000);
   background-repeat: no-repeat;
+  background: red;
 }
 html,
 body {
