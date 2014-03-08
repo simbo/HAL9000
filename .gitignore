@@ -1,7 +1,6 @@
 # Project related
 bower_components/
 node_modules/
-assets/css/*
 !.gitignore
 
 # IDE
