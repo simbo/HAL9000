@@ -1,14 +1,19 @@
 {
   "name": "hal9000",
   "version": "0.0.2",
-  "description": "HAL9000 in CSS",
+  "description": "HAL 9000 in pure CSS/LESS",
   "author": {
     "name": "Simon Lepel",
     "email": "hallo@simonlepel.de",
     "url": "http://simonlepel.de"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simbo/HAL9000.git"
+  },
   "license": {
-    "type": "GPL"
+    "type": "GPLv2",
+    "url": "https://www.gnu.org/licenses/gpl.txt"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
